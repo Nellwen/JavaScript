@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script src="station-meteo.js"></script>
+        <style>
+            body{
+                background-image: url("https://images.pexels.com/photos/86695/sky-clouds-outdoors-scenic-86695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            #result{
+                display: none;
+            }
+            #ville{
+                width: 300px;
+            }
+            img{
+                width: 50px;
+                height: 50px;
+            }
+            .wind{
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="d-flex flex-column alert-dark">
+                <div class="text-center m-5">
+                    <h1>Tableau de bord météo</h1>
+                </div>
+                <div class="row d-flex justify-content-between text-center m-5">
+                    <div class="col-6">
+                        <button id="loadCity" class="btn btn-info p-2">Récupérer la liste des villes</button>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group p-2">
+                            <label for="ville" class="input-group-text col-3">Ville</label>
+                            <select id="ville" class="dropdown-toggle">
+        
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div id="result" class="container alert-dark">
+                <div class="d-flex justify-content-start"> 
+                    <h2 id="nameCity" class="">Toulouse</h2>
+                    <div id="icon">
+
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between text-center alert-secondary p-4">
+                    <hr>
+                    <div class="col-4">
+                        <p class="fw-bold">Température</p>
+                        <hr>
+                        <p class="fw-bold fs-1"><span id="temp" class="fw-bold fs-1"></span>°C</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="fw-bold">Vitesse du vent</p>
+                        <hr>
+                        <p class="fw-bold fs-1"><span id="speed" class="fw-bold fs-1"></span> km/h</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="fw-bold">Direction du vent</p>
+                        <hr>
+                        <div id="windDirection"></div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between text-center p-4">
+                    <div class="col-3">
+                        <p class="fst-italic">GPS : <span id="gps" class="fst-italic"></span></p>
+                    </div>
+                    <div class="col-4">
+                        <p class="fst-italic">Dernier relevé : <span class="fst-italic" id="lastReleve" ></span> à <span class="fst-italic" id="lastHour" ></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </body>
+</html>
